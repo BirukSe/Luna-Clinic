@@ -1,0 +1,24 @@
+@import "tailwindcss";
+.brandText{
+  color: #5f6fff;
+}
+.brandBackground{
+  background-color: #5f6fff;
+}
+
+.montserrat{
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.outfit{
+  font-family: "Outfit", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.color{
+  background-color: #f8f9fa;
+}
