@@ -1,19 +1,27 @@
 import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
 import { Types } from "mongoose";
 import { Role } from "src/roles/roles.enum";
-@Schema({timestamps: true})
-export class Ill{
+import { Doctor } from "src/doctor/doctor.schema"; // Import Doctor schema
+
+@Schema({ timestamps: true })
+export class Ill {
     @Prop()
-    name: string
+    name: string;
+
     @Prop()
-    email: string
+    email: string;
+
     @Prop()
-    password: string
+    password: string;
+
     @Prop()
-    image: string
+    image: string;
+
     @Prop({ type: String, enum: Role, default: Role.PATIENT })
     role: Role;
- 
 
+    @Prop({ type: Types.ObjectId, ref: "Doctor" }) // Reference to Doctor
+    assignedDoctor: Types.ObjectId;
 }
-export const IllSchema=SchemaFactory.createForClass(Ill);
+
+export const IllSchema = SchemaFactory.createForClass(Ill);

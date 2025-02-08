@@ -9,6 +9,7 @@ import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import Appointment from './pages/Appointment';
 import Doc from './pages/physician/Doc';
+import Admin from './pages/Admin/Admin';
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
         <Route path='/appointment' element={<Appointment/>}/>
        
       </Route>
-      <Route path="/doc" element={<Doc/>}/>
+       <Route path="/doc" element={<Doc/>}/>
+       <Route path='/admin' element={<Admin/>}/>
     </Routes>
   );
 };

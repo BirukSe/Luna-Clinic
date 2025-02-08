@@ -5,6 +5,9 @@ interface AuthContextType {
   email: string;
   setEmail: (email: string) => void;
   clearEmail: () => void;
+  id: string;
+  setId: (id: string) => void;
+  clearId: () => void;
 }
 
 // Create the context with default values
@@ -12,31 +15,42 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Create a provider component
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // Initialize state with the value from localStorage if available
+  // Initialize state with values from localStorage if available
   const [email, setEmailState] = useState<string>(localStorage.getItem("email") || "");
+  const [id, setIdState] = useState<string>(localStorage.getItem("id") || "");
 
-  // Function to update the email and store it in localStorage
+  // Function to update email and store it in localStorage
   const setEmail = (email: string) => {
     setEmailState(email);
-    localStorage.setItem("email", email); // Save to localStorage
+    localStorage.setItem("email", email);
   };
 
-  // Function to clear the email and remove it from localStorage
+  // Function to update ID and store it in localStorage
+  const setId = (id: string) => {
+    setIdState(id);
+    localStorage.setItem("id", id);
+  };
+
+  // Function to clear email and remove it from localStorage
   const clearEmail = () => {
     setEmailState("");
-    localStorage.removeItem("email"); // Remove from localStorage
+    localStorage.removeItem("email");
   };
 
-  // Optionally, you could listen for localStorage changes and update state accordingly
+  // Function to clear ID and remove it from localStorage
+  const clearId = () => {
+    setIdState("");
+    localStorage.removeItem("id");
+  };
+
+  // Sync with localStorage on component mount
   useEffect(() => {
-    const storedEmail = localStorage.getItem("email");
-    if (storedEmail) {
-      setEmailState(storedEmail);
-    }
+    setEmailState(localStorage.getItem("email") || "");
+    setIdState(localStorage.getItem("id") || "");
   }, []);
 
   return (
-    <AuthContext.Provider value={{ email, setEmail, clearEmail }}>
+    <AuthContext.Provider value={{ email, setEmail, clearEmail, id, setId, clearId }}>
       {children}
     </AuthContext.Provider>
   );

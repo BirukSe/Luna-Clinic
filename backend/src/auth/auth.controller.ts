@@ -17,4 +17,8 @@ export class AuthController {
   isthere(@Body() user){
     return this.authService.isthere(user);
   }
+  @Post('/appointment')
+  appointment(@Body() message){
+    return this.authService.appointment(message);
+  }
 }

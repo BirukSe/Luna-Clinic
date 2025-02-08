@@ -5,7 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { useAuth } from "../../lib/AuthContext";
 import { JwtPayload } from 'jsonwebtoken';
 
-interface CustomJwtPayload extends JwtPayload {
+export interface CustomJwtPayload extends JwtPayload {
   role: string;  // Add the role property here
 }
 

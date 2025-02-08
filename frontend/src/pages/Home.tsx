@@ -42,7 +42,7 @@ const Home = () => {
     },[])
     const bookAppointment=async()=>{
         if(email!="" && email!=null){
-            navigate('/appointment', {state: {email: email}});
+            navigate('/doctors', {state: {email: email}});
         }
 
     }

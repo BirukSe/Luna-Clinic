@@ -35,7 +35,7 @@ const Doctors = () => {
     <div className="font-outfit">
       <h1 className="flex justify-center text-2xl text-mygreen font-extrabold pt-7 pb-3">Departments</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 md:px-20">
-        {array.map((dep, index) => (
+        {array.map((dep:any, index):any => (
           <div key={index} className="mt-4">
             <div
               className="cursor-pointer w-[220px] mx-auto border rounded-2xl shadow-lg overflow-hidden bg-white transition-transform duration-300 hover:scale-105"
